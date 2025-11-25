@@ -16,7 +16,11 @@ const CachedComponentStatic = async () => {
 
 const CachedComponentDynamic = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
   const { limit } = await searchParams;
-  console.log(limit);
+  return <TodoList limit={Number(limit) || 5} />
+};
+
+const TodoList = async ({ limit }: { limit: number }) => {
+  'use cache';
   const tasks = await fetch(`https://jsonplaceholder.typicode.com/todos?_limit=${limit || 5}`);
   await setTimeout(3000);
   const tasksData = await tasks.json();
