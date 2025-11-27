@@ -4,10 +4,11 @@ import { setTimeout } from "timers/promises";
 const CachedComponentStatic = async () => {
   'use cache';
   const tasks = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=10");
-  await setTimeout(5000);
+  await setTimeout(2000);
   const tasksData = await tasks.json();
 
   return <div className='border-2 border-blue-500 p-4'>
+    <p className="text-2xl font-bold">Static Component</p>
     {tasksData.map((task: any) => (
       <div key={task.id}>{task.title}</div>
     ))}
@@ -26,6 +27,7 @@ const TodoList = async ({ limit }: { limit: number }) => {
   const tasksData = await tasks.json();
 
   return <div className='border-2 border-green-500 p-4 w-120 h-40 overflow-y-auto'>
+    <p className="text-2xl font-bold">Dynamic Component</p>
     {tasksData.map((task: any) => (
       <div key={task.id}>{task.title}</div>
     ))}
