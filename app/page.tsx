@@ -57,7 +57,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
       <p className="text-2xl font-bold">Hey, I'm root</p>
       <CachedComponentStatic />
       <Suspense fallback={<div className='border-2 border-green-500 p-4 w-120 h-40'>Loading...</div>}>
-        <p className="text-2xl font-bold">Request-specific Dynamic Component</p>
+        <p className="text-2xl font-bold">Request-specific(Not prerendered) Dynamic Component</p>
         <CachedComponentDynamic searchParams={searchParams} />
       </Suspense>
       <Suspense fallback={<div className='border-2 border-green-500 p-4 w-120 h-40'>Loading cached...</div>}>
