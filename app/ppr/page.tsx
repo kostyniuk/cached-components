@@ -12,7 +12,7 @@ function StaticComponent() {
 }
 
 async function DynamicComponent() {
-    await setTimeout(2000);
+    //await setTimeout(2000);
     const todosResponse = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5");
     const todos = await todosResponse.json();
 
